@@ -667,10 +667,10 @@ class Database:
                 FROM profiles p
                 JOIN users u ON p.user_id = u.user_id
                 WHERE p.user_id != ? AND p.is_active = 1 AND u.is_blocked = 0
-                  AND p.id NOT IN (
+                AND p.id NOT IN (
                     SELECT r.to_profile_id FROM reactions r
-                    WHERE r.from_user_id = ? AND r.reaction_type = 'like'
-                  )
+                    WHERE r.from_user_id = ? 
+)
             '''
             params = [user_id, user_id]
 
